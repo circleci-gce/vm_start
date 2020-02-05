@@ -33,11 +33,13 @@ commands:
       - run:
           name: Install Tweepy
           command: |
-            pip install tweepy
+            export PIP=$(which pip pip3 | head -1)
+            $PIP install tweepy --upgrade
       - run:
           name: Send Job notifcation
           command: |
-            python tweet.py \
+            export PYTHON=$(which python python3 | tail -1)
+            $PYTHON tweet.py \
             ${TWITTER_CONSUMER_KEY} \
             ${TWITTER_CONSUMER_SECRET_KEY} \
             ${TWITTER_ACCESS_TOKEN} \
