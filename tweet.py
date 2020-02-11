@@ -14,8 +14,10 @@ api = tweepy.API(auth)
 # Create message body
 URL = os.environ['CIRCLE_BUILD_URL']
 INSTANCE_IP = os.environ['INSTANCE_IP']
+INSTANCE_NAME = os.environ['INSTANCE_NAME']
 
 message = 'CircleCI started an VM instance' + '\n\n' \
+          + 'Instance name: ' + INSTANCE_NAME + '\n\n' \
           + INSTANCE_IP + '\n\n' \
           + URL
 
