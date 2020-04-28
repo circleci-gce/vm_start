@@ -1,13 +1,13 @@
 version: 2.1
 orbs:
-  gcp-cli: circleci/gcp-cli@1.8.3
+  gcp-cli: circleci/gcp-cli@1.8.4
 
 parameters:
   instance-name:
-    type: string 
+    type: string
     default: ""
   zone:
-    type: string 
+    type: string
     default: "asia-northeast1-b"
 
 commands:
@@ -56,7 +56,7 @@ commands:
 jobs:
   build:
     docker:
-      - image: google/cloud-sdk:latest
+      - image: google/cloud-sdk:debian_component_based
     steps:
       - checkout
       - initialize-gce
